@@ -7,3 +7,4 @@ those numbers.
 simpleSum(10, 20); // => 30
 simpleSum(5, 10); // => 15
 ```
+

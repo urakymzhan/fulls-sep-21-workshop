@@ -1,25 +1,26 @@
 // YOUR CODE BELOW
 
-function taxCalculator(price, state){
-    var afterTaxesTotal;
-    if(price !== 0 || price !== null || price !== ''){
-     if(state === 'NY'){
-         afterTaxesTotal= price + (price*0.04);
-     }
-     else if(state === 'NJ'){
-         afterTaxesTotal= price + (price*0.0625);
-     }
-     else if(state === 'IL'){
-         afterTaxesTotal= price + (price*0.09);
-     }
-     else {
-       console.log('Please submit proper state name: ');
-     }
-    }else{
-      console.loconsole.log('Please submit proper price: ');
-    }
-     return afterTaxesTotal;
+const states = {
+  'NY': 0.04,
+  'NJ': 0.0625,
+  'IL': 0.09,
+  'CA': 0.10,
+  'TX': 0.08,
+}
+
+function taxCalculator(price, state) {
+  var afterTaxesTotal;
+  if(states.hasOwnProperty(state)) {
+    for(let key in states) {
+        if(key === state) {
+          afterTaxesTotal = price + (price*states[key])
+        } 
+      }
+  } else {
+    return 'Incorrect State';
+  }
+  return afterTaxesTotal;    
  }
- 
- var taxes = taxCalculator(  0 ,'I' );
- console.log(taxes);
+
+ var taxes = taxCalculator(10, 'T');
+ console.log(taxes); 
